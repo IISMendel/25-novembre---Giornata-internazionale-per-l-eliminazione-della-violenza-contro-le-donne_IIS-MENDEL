@@ -7,7 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CSS BASE & RESET --- */
+        :root {
+            --mendel-red: #D90429;
+            --mendel-dark: #1a1a1a;
+            --mendel-grey-bg: #f8f9fa;
+            --mendel-muted: #777;
+        }
+
+        /* --- RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -17,115 +24,547 @@
             background-color: #fff;
             overflow-x: hidden;
         }
-        h1, h2, h3, h4 { font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #1a1a1a; }
-        
-        /* H1 adattato per lo sfondo scuro della hero section */
-        h1 { font-size: 3.5rem; line-height: 1.2; color: white; margin-bottom: 20px;}
-        
-        h2 { font-size: 2.5rem; color: #D90429; margin-bottom: 50px; text-align: center; position: relative; padding-bottom: 20px;}
-        h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background: #D90429; }
-        h3 { font-size: 1.8rem; margin: 40px 0 25px 0; color: #D90429; display: flex; align-items: center;}
-        h4 { font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a; }
-        
-        /* CONTAINER A TUTTA LARGHEZZA */
-        .container-fluid { width: 100%; padding: 0 5%; position: relative; z-index: 2; max-width: 1600px; margin: 0 auto;}
-        
-        strong { font-weight: 700; color: #D90429; }
-        section { padding: 120px 0; border-bottom: 1px solid #eee;}
-        .bg-grey { background-color: #f8f9fa; }
-        .text-center { text-align: center; }
-        .lead-text { font-size: 1.3rem; max-width: 1000px; margin: 0 auto 40px auto; color: #555; text-align: center;}
-
-        /* --- NAVIGAZIONE SUPERIORE FISSA --- */
-        header { background: #1a1a1a; padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid #D90429; box-shadow: 0 4px 12px rgba(0,0,0,0.15); width: 100%; }
-        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; width: 100%; max-width: 1400px; margin: 0 auto;}
-        nav ul li { margin: 5px 15px; }
-        nav ul li a { text-decoration: none; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 1rem; transition: all 0.3s; padding: 8px 12px; border-radius: 4px; letter-spacing: 1px;}
-        nav ul li a:hover, nav ul li a.active { color: #fff; background: #D90429; }
-
-        /* --- NUOVA HERO SECTION CON VIDEO IN PRIMO PIANO --- */
-        #hero-section { 
-            padding: 140px 0 80px 0; /* Spazio superiore per il menu fisso */
-            position: relative; 
+        h1, h2, h3, h4 { 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            color: #1a1a1a; 
+        }
+        h1 { 
+            font-size: 3.5rem; 
+            line-height: 1.2; 
+            color: white; 
+            margin-bottom: 20px;
+        }
+        h2 { 
+            font-size: 2.5rem; 
+            color: var(--mendel-red); 
+            margin-bottom: 50px; 
             text-align: center; 
-            /* Sfondo scuro elegante per far risaltare il video */
-            background: linear-gradient(135deg, #1a1a1a 0%, #36000a 100%);
-            color: white;
-            border-bottom: 5px solid #D90429;
+            position: relative; 
+            padding-bottom: 20px;
+        }
+        h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 100px; 
+            height: 4px; 
+            background: var(--mendel-red); 
+        }
+        h3 { 
+            font-size: 1.8rem; 
+            margin: 40px 0 25px 0; 
+            color: var(--mendel-red); 
+            display: flex; 
+            align-items: center;
+        }
+        h4 { 
+            font-size: 1.3rem; 
+            margin-bottom: 15px; 
+            color: #1a1a1a; 
         }
 
-        .hero-subtitle { font-size: 1.1rem; font-weight: 700; color: #fff; background: #D90429; display: inline-block; padding: 5px 25px; margin-bottom: 30px; border-radius: 50px; letter-spacing: 2px;}
-        
-        /* Stile per il grande video centrale in primo piano */
+        .container-fluid { 
+            width: 100%; 
+            padding: 0 5%; 
+            position: relative; 
+            z-index: 2; 
+            max-width: 1600px; 
+            margin: 0 auto;
+        }
+        section { padding: 120px 0; border-bottom: 1px solid #eee; }
+        .bg-grey { background-color: var(--mendel-grey-bg); }
+        strong { font-weight: 700; color: var(--mendel-red); }
+        .text-center { text-align: center; }
+        .lead-text { 
+            font-size: 1.3rem; 
+            max-width: 1000px; 
+            margin: 0 auto 40px auto; 
+            color: #555; 
+            text-align: center;
+        }
+
+        /* --- NAV FISSA --- */
+        header { 
+            background: var(--mendel-dark); 
+            padding: 15px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 4px solid var(--mendel-red); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            width: 100%; 
+        }
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            width: 100%; 
+            max-width: 1400px; 
+            margin: 0 auto;
+        }
+        nav ul li { margin: 5px 15px; }
+        nav ul li a { 
+            text-decoration: none; 
+            color: #fff; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 0.95rem; 
+            transition: all 0.3s; 
+            padding: 8px 12px; 
+            border-radius: 4px; 
+            letter-spacing: 1px;
+        }
+        nav ul li a:hover, 
+        nav ul li a.active { 
+            color: #fff; 
+            background: var(--mendel-red); 
+        }
+
+        /* --- HERO --- */
+        #hero-section { 
+            padding: 140px 0 80px 0;
+            position: relative; 
+            text-align: center; 
+            background: linear-gradient(135deg, #1a1a1a 0%, #36000a 100%);
+            color: white;
+            border-bottom: 5px solid var(--mendel-red);
+        }
+        .hero-subtitle { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: #fff; 
+            background: var(--mendel-red); 
+            display: inline-block; 
+            padding: 5px 25px; 
+            margin-bottom: 30px; 
+            border-radius: 50px; 
+            letter-spacing: 2px;
+        }
+        .hero-intro-text {
+            font-size: 1.6rem; 
+            font-weight: 600; 
+            margin-top: 20px; 
+            color: #eee;
+        }
+
+        /* CTA rapida in hero */
+        .hero-cta-row {
+            margin-top: 35px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .hero-cta-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 999px;
+            border: 2px solid rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            text-decoration: none;
+            backdrop-filter: blur(4px);
+            transition: all 0.25s ease;
+        }
+        .hero-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+            background: rgba(217,4,41,0.9);
+            border-color: rgba(217,4,41,1);
+        }
+        .hero-cta-btn.accent {
+            background: var(--mendel-red);
+            border-color: var(--mendel-red);
+        }
+        .hero-cta-btn.secondary {
+            background: transparent;
+        }
+
         .hero-video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            max-width: 1100px; /* Larghezza massima per non esagerare su schermi giganti */
-            margin: 40px auto 0 auto; /* Centrato */
-            border: 4px solid #D90429;
+            max-width: 1100px;
+            margin: 40px auto 0 auto;
+            border: 4px solid var(--mendel-red);
         }
-        .hero-video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        
-        /* --- INTRO --- */
-        .quote-box { border-left: 10px solid #D90429; background: #fff; padding: 50px; margin: 0 auto 50px auto; font-size: 1.5rem; font-weight: 700; text-align: center; max-width: 1200px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); font-style: italic; color: #1a1a1a;}
-       
-        /* --- STILI SEZIONE DATI --- */
-        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .data-box { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid #D90429; }
-        .data-box h4 { color: #D90429; font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 15px;}
-        .data-big-number { font-size: 3rem; font-weight: 900; color: #1a1a1a; display: block; margin: 20px 0 10px 0; line-height: 1;}
+        .hero-video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
+
+        /* --- INTRO BOX --- */
+        .quote-box { 
+            border-left: 10px solid var(--mendel-red); 
+            background: #fff; 
+            padding: 50px; 
+            margin: 0 auto 50px auto; 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            text-align: center; 
+            max-width: 1200px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            font-style: italic; 
+            color: #1a1a1a;
+        }
+
+        /* --- DATI --- */
+        .data-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin-top: 40px; 
+        }
+        .data-box { 
+            background: #fff; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            border-top: 4px solid var(--mendel-red); 
+        }
+        .data-box h4 { 
+            color: var(--mendel-red); 
+            font-size: 1.2rem; 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 15px;
+        }
+        .data-big-number { 
+            font-size: 3rem; 
+            font-weight: 900; 
+            color: #1a1a1a; 
+            display: block; 
+            margin: 20px 0 10px 0; 
+            line-height: 1;
+        }
         .data-stat-list { list-style: none; }
-        .data-stat-list li { margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05rem;}
-        .data-stat-list li::before { content: '•'; color: #D90429; font-size: 2rem; position: absolute; left: 0; top: -5px; }
+        .data-stat-list li { 
+            margin-bottom: 15px; 
+            padding-left: 25px; 
+            position: relative; 
+            font-size: 1.05rem;
+        }
+        .data-stat-list li::before { 
+            content: '•'; 
+            color: var(--mendel-red); 
+            font-size: 2rem; 
+            position: absolute; 
+            left: 0; 
+            top: -5px; 
+        }
 
-        .definitions-block { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-top: 50px;}
-        .definition-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee;}
+        /* Mini-grafico a barre */
+        .data-chart {
+            margin-top: 40px;
+            background: #fff;
+            padding: 25px 25px 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+        }
+        .data-chart-title {
+            font-weight: 800;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .data-chart-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .data-chart-label {
+            flex: 0 0 210px;
+            font-weight: 600;
+        }
+        .data-chart-bar-wrapper {
+            flex: 1;
+            background: #eee;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .data-chart-bar-fill {
+            height: 14px;
+            background: var(--mendel-red);
+            border-radius: 999px;
+        }
+
+        /* --- DEFINIZIONI --- */
+        .definitions-block { 
+            background: #fff; 
+            padding: 40px; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+            margin-top: 50px;
+        }
+        .definition-item { 
+            margin-bottom: 30px; 
+            padding-bottom: 20px; 
+            border-bottom: 1px solid #eee;
+        }
         .definition-item:last-child { border-bottom: none; }
-        .definition-title { font-weight: 800; font-size: 1.2rem; color: #1a1a1a; display: flex; align-items: center; margin-bottom: 10px;}
-        .definition-icon { font-size: 2rem; margin-right: 15px; color: #D90429;}
+        .definition-title { 
+            font-weight: 800; 
+            font-size: 1.2rem; 
+            color: #1a1a1a; 
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 10px;
+        }
+        .definition-icon { 
+            font-size: 2rem; 
+            margin-right: 15px; 
+            color: var(--mendel-red);
+        }
 
-        /* --- RISORSE GRID (Rifatta per essere più ricca) --- */
-        .resources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 60px;}
-        .resource-column { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 3px solid #D90429;}
-        .resource-column h3 { color: #1a1a1a; border-bottom: 2px solid #eee; padding-bottom: 15px; font-size: 1.4rem; justify-content: flex-start; margin-top: 0;}
-        .link-list { list-style: none; margin-top: 25px;}
-        .link-list li { margin-bottom: 20px; border-bottom: 1px dotted #eee; padding-bottom: 15px;}
+        /* --- RISORSE --- */
+        .resources-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 40px; 
+            margin-top: 60px;
+        }
+        .resource-column { 
+            background: #fff; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+            border-top: 3px solid var(--mendel-red);
+        }
+        .resource-column h3 { 
+            color: #1a1a1a; 
+            border-bottom: 2px solid #eee; 
+            padding-bottom: 15px; 
+            font-size: 1.4rem; 
+            margin-top: 0;
+        }
+        .link-list { 
+            list-style: none; 
+            margin-top: 25px;
+        }
+        .link-list li { 
+            margin-bottom: 20px; 
+            border-bottom: 1px dotted #eee; 
+            padding-bottom: 15px;
+        }
         .link-list li:last-child { border-bottom: none; }
-        .link-list a { text-decoration: none; color: #1a1a1a; font-weight: 800; transition: color 0.2s; display: block; font-size: 1.1rem; line-height: 1.3;}
-        .link-list a:hover { color: #D90429; text-decoration: underline;}
-        .link-desc { display: block; font-size: 0.9rem; color: #666; font-weight: 500; margin-top: 5px; line-height: 1.4;}
+        .link-list a { 
+            text-decoration: none; 
+            color: #1a1a1a; 
+            font-weight: 800; 
+            transition: color 0.2s; 
+            display: block; 
+            font-size: 1.05rem; 
+            line-height: 1.3;
+        }
+        .link-list a:hover { 
+            color: var(--mendel-red); 
+            text-decoration: underline;
+        }
+        .link-desc { 
+            display: block; 
+            font-size: 0.9rem; 
+            color: #666; 
+            font-weight: 500; 
+            margin-top: 5px; 
+            line-height: 1.4;
+        }
 
-        /* --- AIUTO SECTION --- */
-        .help-section-bg { background: linear-gradient(135deg, #fff5f5 0%, #ffebeb 100%); border-top: 5px solid #D90429; }
-        .help-container { display: flex; flex-wrap: wrap; gap: 60px; align-items: center; margin-top: 50px;}
-        .help-box-main { flex: 1 1 500px; background: #fff; padding: 50px; border-radius: 25px; box-shadow: 0 20px 50px rgba(217, 4, 41, 0.15); text-align: center; border: 1px solid #ffdee2;}
+        /* --- AIUTO --- */
+        .help-section-bg { 
+            background: linear-gradient(135deg, #fff5f5 0%, #ffebeb 100%); 
+            border-top: 5px solid var(--mendel-red); 
+        }
+        .help-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 60px; 
+            align-items: center; 
+            margin-top: 50px;
+        }
+        .help-box-main { 
+            flex: 1 1 500px; 
+            background: #fff; 
+            padding: 50px; 
+            border-radius: 25px; 
+            box-shadow: 0 20px 50px rgba(217, 4, 41, 0.15); 
+            text-align: center; 
+            border: 1px solid #ffdee2;
+        }
         .video-box-side { flex: 1 1 500px; }
-        
-        /* Contenitore per il video laterale (Mendel) */
-        .video-container-side { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); width: 100%;}
-        .video-container-side iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        
-        .big-help-btn { display: inline-block; background: #D90429; color: white; padding: 20px 40px; border-radius: 12px; font-weight: 800; text-decoration: none; margin: 15px 10px; transition: all 0.3s; font-size: 1.2rem; border: 2px solid #D90429;}
-        .big-help-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(217, 4, 41, 0.3); background: #b00321; border-color: #b00321;}
-        .big-help-btn.secondary { background: transparent; color: #D90429; }
-        .big-help-btn.secondary:hover { background: #D90429; color: white; }
+        .video-container-side { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
+            width: 100%;
+        }
+        .video-container-side iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
 
-        footer { background: #1a1a1a; color: #999; text-align: center; padding: 50px 0; margin-top: auto; font-size: 1rem;}
-        
-        /* Animazioni e Responsive */
+        .big-help-btn { 
+            display: inline-block; 
+            background: var(--mendel-red); 
+            color: white; 
+            padding: 20px 40px; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            text-decoration: none; 
+            margin: 15px 10px; 
+            transition: all 0.3s; 
+            font-size: 1.1rem; 
+            border: 2px solid var(--mendel-red);
+        }
+        .big-help-btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 20px rgba(217, 4, 41, 0.3); 
+            background: #b00321; 
+            border-color: #b00321;
+        }
+        .big-help-btn.secondary { 
+            background: transparent; 
+            color: var(--mendel-red); 
+        }
+        .big-help-btn.secondary:hover { 
+            background: var(--mendel-red); 
+            color: white; 
+        }
+
+        .help-extra-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        /* Carte 1522 / 112 – numeri più “cicciotti” */
+        .emergency-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .emergency-card {
+            flex: 1 1 260px;
+            border-radius: 20px;
+            padding: 20px 18px 16px 18px;
+            background: #fff8f8;
+            border: 2px solid rgba(217,4,41,0.22);
+            text-align: left;
+        }
+        .emergency-icon {
+            font-size: 2rem;
+        }
+        .emergency-number {
+            font-size: 3.4rem;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            margin: 4px 0 2px 0;
+        }
+        .emergency-title {
+            font-size: 1.08rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .emergency-multilang {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .emergency-multilang p {
+            margin: 3px 0;
+        }
+        .emergency-multilang p[lang="ar"],
+        .emergency-multilang p[lang="he"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Blocco “pericolo immediato” */
+        .immediate-danger-block {
+            margin-top: 30px;
+            background: #fff;
+            border-radius: 22px;
+            padding: 22px 20px 18px 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 2px solid rgba(217,4,41,0.35);
+            text-align: left;
+        }
+        .immediate-danger-sentence {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--mendel-red);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .immediate-danger-sentence span {
+            font-size: 1.5rem;
+        }
+        .immediate-danger-multilang {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .immediate-danger-multilang p {
+            margin: 3px 0;
+        }
+        .immediate-danger-multilang p[lang="ar"],
+        .immediate-danger-multilang p[lang="he"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* BIBLIOGRAFIA */
+        .bibliography-section .link-list a {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        .bibliography-section .link-list {
+            margin-top: 18px;
+        }
+
+        footer { 
+            background: var(--mendel-dark); 
+            color: #999; 
+            text-align: center; 
+            padding: 50px 0; 
+            margin-top: auto; 
+            font-size: 1rem;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 992px) { 
-            h1 { font-size: 2.5rem; } h2 { font-size: 2rem; }
-            #hero-section { padding-top: 100px; }
-            nav ul { justify-content: space-around; } nav ul li { margin: 5px; }
+            h1 { font-size: 2.5rem; } 
+            h2 { font-size: 2rem; }
+            #hero-section { padding-top: 110px; }
+            nav ul { justify-content: space-around; } 
+            nav ul li { margin: 5px; }
             .container-fluid { padding: 0 30px; }
             .help-box-main { padding: 40px; }
             .help-container { flex-direction: column; }
             .video-box-side { width: 100%; }
             .resources-grid { grid-template-columns: 1fr; }
+            .data-chart-label { flex: 0 0 150px; }
         }
     </style>
 </head>
@@ -137,226 +576,563 @@
                 <li><a href="#home" id="nav-home">Home & Video</a></li>
                 <li><a href="#dati" id="nav-dati">Analisi & Dati</a></li>
                 <li><a href="#risorse" id="nav-risorse">Risorse & Guide</a></li>
-                <li><a href="#bibliografia" id="nav-bibliografia">Bibliografia Completa</a></li>
-                <li><a href="#aiuto" id="nav-aiuto">CHIAMA AIUTO (1522)</a></li>
+                <li><a href="#aiuto" id="nav-aiuto">Chiama aiuto (1522 / 112)</a></li>
+                <li><a href="#bibliografia" id="nav-bibliografia">Bibliografia</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" style="padding-top: 0;">
-        <div id="hero-section">
-            <div class="container-fluid">
-                <span class="hero-subtitle">IIS MENDEL | 25 NOVEMBRE</span>
-                <h1>"SE IO NON VOGLIO,<br>TU NON PUOI"</h1>
-                <p style="font-size: 1.6rem; font-weight: 600; margin-top: 20px; color: #eee;">La nostra comunità scolastica dice NO alla violenza di genere.</p>
-                
-                <div class="hero-video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/LiPqwJ88MbQ?rel=0" title="Video Segnali di Violenza" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
+    <main>
+        <section id="home" style="padding-top: 0;">
+            <div id="hero-section">
+                <div class="container-fluid">
+                    <span class="hero-subtitle">IIS MENDEL | 25 NOVEMBRE</span>
+                    <h1>"SE IO NON VOGLIO,<br>TU NON PUOI"</h1>
+                    <p class="hero-intro-text">
+                        La nostra comunità scolastica dice NO alla violenza di genere.
+                    </p>
 
-        <div class="container-fluid" style="margin-top: 80px;">
-            <div class="quote-box">
-                "Il rosso oggi non è amore, è un allarme. Riconoscere i segnali è il primo passo per fermare la violenza. Noi all'IIS Mendel scegliamo di non voltare la testa."
-            </div>
-            <p class="lead-text">
-                Questa pagina è uno strumento di consapevolezza. Guarda il video qui sopra per riconoscere i campanelli d'allarme, informati sui dati reali qui sotto e scopri gli strumenti concreti per chiedere aiuto.
-            </p>
-            </div>
-    </section>
-<section id="dati" class="bg-grey">
-        <div class="container-fluid">
-            <h2>Oltre i Numeri: La Realtà</h2>
-            <p class="lead-text">I dati ufficiali (fonte Ministero dell'Interno e ISTAT) non sono solo statistiche: raccontano storie di vite interrotte e di un fenomeno strutturale, non emergenziale.</p>
-            
-            <h3>📊 Lo Scenario Recente (Dati 2023/2024)</h3>
-            <div class="data-grid">
-                <div class="data-box">
-                    <h4>Le Vittime</h4>
-                    <span class="data-big-number">31,5%</span>
-                    <p>Delle donne in Italia (tra i 16 e i 70 anni) ha subito nel corso della propria vita una qualche forma di violenza fisica o sessuale (Dati Istat).</p>
-                </div>
-                <div class="data-box">
-                    <h4>I Femminicidi (Report 2023)</h4>
-                    <ul class="data-stat-list">
-                        <li><strong>120 donne uccise</strong> nel 2023 in Italia.</li>
-                        <li>Nel <strong>92,7%</strong> dei casi, l'autore è un uomo.</li>
-                        <li>Oltre l'<strong>80%</strong> dei femminicidi avviene in ambito familiare/affettivo (partner, ex partner, parenti).</li>
-                    </ul>
-                </div>
-                <div class="data-box">
-                    <h4>Violenza Sessuale</h4>
-                    <span class="data-big-number">91%</span>
-                    <p>Delle vittime di violenza sessuale segnalate nel 2023 sono donne (su un totale di oltre 6.000 casi). È il reato "spia" più allarmante.</p>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 80px;">🔍 Riconoscere le forme della violenza</h3>
-            <p>La ricerca approfondita evidenzia che la violenza non è solo quella che lascia lividi visibili.</p>
-            
-            <div class="definitions-block">
-                <div class="definition-item">
-                    <div class="definition-title"><span class="definition-icon">🗣️</span> Violenza Psicologica</div>
-                    <p>Svalutazione continua, controllo delle frequentazioni, isolamento dalla famiglia e dagli amici, minacce, gelosia ossessiva scambiata per amore. È spesso l'anticamera della violenza fisica.</p>
-                </div>
-                <div class="definition-item">
-                    <div class="definition-title"><span class="definition-icon">💸</span> Violenza Economica</div>
-                    <p>Impedire alla partner di lavorare, controllarle ogni spesa, sottrarle lo stipendio, costringerla a firmare documenti contro la sua volontà. Serve a creare dipendenza e impedire la fuga.</p>
-                </div>
-                <div class="definition-item">
-                    <div class="definition-title"><span class="definition-icon">👊</span> Violenza Fisica e Sessuale</div>
-                    <p>Ogni forma di aggressione corporea. La violenza sessuale include qualsiasi atto sessuale imposto senza consenso, anche all'interno di una relazione di coppia o matrimonio.</p>
-                </div>
-            </div>
-
-             <h3 style="margin-top: 60px;">⚖️ Lo Strumento Legale: Il "Codice Rosso"</h3>
-             <div style="background: #fff; padding: 30px; border-left: 5px solid #D90429; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <p style="font-size: 1.1rem;">La Legge n. 69/2019 (nota come "Codice Rosso") ha introdotto una <strong>corsia preferenziale</strong> per le denunce di violenza domestica e di genere. Le forze dell'ordine devono comunicare immediatamente la notizia di reato al PM, che deve ascoltare la vittima <strong>entro 3 giorni</strong>. L'obiettivo è intervenire prima che la situazione degeneri irreparabilmente.</p>
-             </div>
-
-            <p class="text-center" style="margin-top: 50px; font-size: 1rem; color: #777;">Fonti dei dati elaborati: Report Dipartimento Pubblica Sicurezza (Viminale), Dati ISTAT, Analisi Commissione Parlamentare d'inchiesta sul femminicidio.</p>
-        </div>
-    </section>
-
-
-    <section id="risorse">
-        <div class="container-fluid">
-            <h2>Documenti, Fonti e Guide Pratiche</h2>
-            <p class="lead-text">Una selezione curata di report istituzionali, vademecum operativi e risorse educative per comprendere e contrastare il fenomeno.</p>
-
-            <div class="resources-grid">
-                <div class="resource-column">
-                    <h3>🏛️ Report Istituzionali & Dati</h3>
-                    <ul class="link-list">
-                         <li><a href="https://www.interno.gov.it/it/stampa-e-comunicazione/dati-e-statistiche/violenza-genere" target="_blank">Viminale: Dati sulla Violenza di Genere</a><span class="link-desc">I report settimanali e annuali ufficiali del Dipartimento della Pubblica Sicurezza.</span></li>
-                        <li><a href="https://www.istat.it/it/violenza-sulle-donne/il-fenomeno" target="_blank">ISTAT: Il sistema informativo integrato</a><span class="link-desc">Il quadro completo delle indagini statistiche, incluse le molestie e lo stalking.</span></li>
-                        <li><a href="https://www.giustizia.it/giustizia/it/mg_2_15.wp" target="_blank">Ministero della Giustizia: Monitoraggio Leggi</a><span class="link-desc">Dati sull'applicazione del "Codice Rosso" e procedimenti giudiziari.</span></li>
-                        <li><a href="https://www.pariopportunita.gov.it/it/le-priorita/contrasto-alla-violenza-di-genere/piano-strategico-nazionale-sulla-violenza-maschile-contro-le-donne-2021-2023/" target="_blank">Piano Strategico Nazionale 2021-2023</a><span class="link-desc">Il documento programmatico del Dipartimento per le Pari Opportunità.</span></li>
-                    </ul>
-                </div>
-
-                <div class="resource-column">
-                    <h3>📘 Guide Pratiche e Vademecum</h3>
-                     <ul class="link-list">
-                        <li><a href="https://www.poliziadistato.it/archivio/category/1224" target="_blank">Polizia di Stato: "Questo non è amore"</a><span class="link-desc">Materiale informativo della campagna permanente della Polizia.</span></li>
-                        <li><a href="https://www.salute.gov.it/imgs/C_17_pubblicazioni_2666_allegato.pdf" target="_blank">Linee Guida Nazionali Soccorso (PDF)</a><span class="link-desc">Il percorso di accoglienza "Rosa" al Pronto Soccorso per le vittime.</span></li>
-                        <li><a href="https://www.azione.it/wp-content/uploads/2021/11/Vademecum-Violenza-di-Genere.pdf" target="_blank">Vademecum Legale (Esempio)</a><span class="link-desc">Guida sintetica sugli strumenti di tutela legale (Ordini di protezione, etc.).</span></li>
-                        <li><a href="https://www.actionaid.it/blog/campagne/violenza-sulle-donne-riconoscere-segnali" target="_blank">ActionAid: Riconoscere i segnali</a><span class="link-desc">Una guida semplice per identificare i comportamenti spia della violenza psicologica.</span></li>
-                    </ul>
-                </div>
-
-                 <div class="resource-column">
-                    <h3>🎓 Risorse Educative (Scuole)</h3>
-                     <ul class="link-list">
-                        <li><a href="https://www.savethechildren.it/cosa-facciamo/campagne/la-violenza-sulle-donne-ci-riguarda" target="_blank">Save the Children: Kit Didattici</a><span class="link-desc">Strumenti per affrontare il tema in classe con diverse fasce d'età.</span></li>
-                        <li><a href="https://www.amnesty.it/campagne/io-lo-chiedo/" target="_blank">Amnesty International: "Io lo chiedo"</a><span class="link-desc">Campagna e materiali educativi sul tema del consenso.</span></li>
-                        <li><a href="https://www.unicef.it/media/parita-di-genere-a-scuola/" target="_blank">UNICEF Italia: Parità a scuola</a><span class="link-desc">Risorse per promuovere l'uguaglianza di genere nell'educazione.</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-<section id="bibliografia" class="bg-grey">
-        <div class="container-fluid">
-            <h2>Bibliografia Completa e Riferimenti</h2>
-            <p class="lead-text">Elenco completo delle fonti, degli articoli e dei documenti analizzati per la realizzazione di questo progetto.</p>
-
-            <div class="resources-grid" style="grid-template-columns: 1fr;">
-                <div class="resource-column" style="border-top-color: #555;">
-                    <h3>Elenco Riferimenti</h3>
-                    <ul class="link-list" style="font-size: 0.95rem;">
-                        <li><a href="https://www.ilfattoquotidiano.it/2024/11/17/violenza-donne-governo-meloni-tutto-tace/7767738/" target="_blank">Contrastare la violenza sulle donne significa agire su più livelli. Ma dal governo tutto tace (Il Fatto Quotidiano)</a></li>
-                        <li><a href="https://finanza.repubblica.it/News/2025/11/20/_insieme_per_le_donne_bper_rinnova_il_proprio_impegno_per_contrastare_la_violenza_economica_e_sostenere_lautonomia_femminile-189/" target="_blank">"Insieme per le Donne": BPER rinnova il proprio impegno (Repubblica Finanza)</a></li>
-                        <li><a href="https://www.avvenire.it/attualita/dal-cyberstalking-al-doxxing-la-violenza-di-genere-e-sempre-piu-digitale_100836" target="_blank">Dal cyberstalking al doxxing, la violenza di genere è sempre più digitale (Avvenire)</a></li>
-                        <li><a href="https://www.dinamopress.it/news/il-22-novembre-non-una-di-meno-scende-di-nuovo-in-piazza-contro-guerre-e-patriarcato/" target="_blank">Il 22 novembre Non una di Meno scende di nuovo in piazza (Dinamo Press)</a></li>
-                        <li><a href="https://www.lunaria.org/lunaria-con-non-una-di-meno-contro-la-violenza-di-genere/" target="_blank">Lunaria con Non Una di Meno contro la violenza di genere</a></li>
-                        <li><a href="https://www.cgil.it/campagne-e-iniziative/giornata-internazionale-per-leliminazione-della-violenza-contro-le-donne-e-di-genere-riskyv02" target="_blank">CGIL: Giornata internazionale per l’eliminazione della violenza</a></li>
-                        <li><a href="https://ntplusdiritto.ilsole24ore.com/art/violenza-sessuale-quando-manca-consenso-libero-e-attuale-ok-camera-pdl-AHj9vypD" target="_blank">Violenza sessuale quando manca il “consenso libero e attuale” (Il Sole 24 Ore)</a></li>
-                        <li><a href="https://www.mim.gov.it/-/25-novembre-il-videomessaggio-del-ministro-valditara-dobbiamo-educare-i-ragazzi-alla-cultura-del-rispetto-a-partire-dalla-scuola-ogni-atto-che-discrim" target="_blank">25 novembre, il videomessaggio del Ministro Valditara (MIM)</a></li>
-                        <li><a href="https://nonunadimeno.wordpress.com/2025/11/" target="_blank">Non Una Di Meno - Novembre 2025</a></li>
-                        <li><a href="https://www.ilpost.it/2025/04/03/problema-dati-femminicidi/" target="_blank">In Italia abbiamo un problema con i dati sui femminicidi (Il Post)</a></li>
-                        <li><a href="https://tg24.sky.it/politica/2024/11/25/mattarella-giornata-violenza-donne" target="_blank">Giornata contro la violenza sulle donne, Mattarella: "Non è stato fatto abbastanza" (Sky TG24)</a></li>
-                        <li><a href="https://www.foe.it/news/mim-ministero-dellistruzione-e-del-merito-25-novembre-giornata-internazionale-per-leliminazione-della-violenza-contro-le-donne-e-di-genere-riskyv02" target="_blank">MIM: 25 novembre (CdO Opere Educative)</a></li>
-                        <li><a href="https://www.liceisgv.edu.it/messaggio-del-ministro-dellistruzione-e-del-merito-in-occasione-del-25-novembre-2024/" target="_blank">Messaggio del Ministro dell'Istruzione e del Merito (Licei SGV)</a></li>
-                        <li><a href="https://demografica.adnkronos.com/popolazione/ddl-femminicidio-voto-senato-ergastolo-e-aggravanti/" target="_blank">Ddl femminicidio: cosa prevede la nuova legge (Adnkronos)</a></li>
-                        <li><a href="https://www.noidonne.org/articoli/non-una-di-meno-22-novembre-corteo-nazionale-a-roma.php" target="_blank">NON UNA DI MENO / 22 NOVEMBRE CORTEO NAZIONALE A ROMA (Noi Donne)</a></li>
-                        <li><a href="https://finanza.lastampa.it/News/2023/11/24/adr-contro-la-violenza-sulle-donne-liniziativa-redsuitcase-e-il-progetto-punti-viola-in-aeroporto/MTkzXzIwMjMtMTEtMjRfVExC" target="_blank">ADR contro la violenza sulle donne. L'iniziativa "RedSuitCase" (La Stampa)</a></li>
-                        <li><a href="https://www.grazia.it/moda/news-moda/iniziative-moda-25-novembre-violenza-donne" target="_blank">Iniziative moda 25 novembre: contro la violenza sulle donne (Grazia)</a></li>
-                        <li><a href="https://tg24.sky.it/cronaca/video/2025/11/18/timeline-ogni-72-ore-il-caso-matteuzzi-in-onda-su-sky-crime-il-25-novembre-1052800" target="_blank">Timeline, 'Ogni 72 ore. Il caso Matteuzzi' in onda su Sky Crime</a></li>
-                        <li><a href="https://www.marieclaire.it/attualita/news-appuntamenti/a69018549/risparmio-soldi-economia-familiare-donne/" target="_blank">I soldi delle donne: guadagno, spese e risparmio (Marie Claire)</a></li>
-                        <li><a href="https://www.marieclaire.it/attualita/news-appuntamenti/a69302613/organizzazioni-violenza-genere-donne/" target="_blank">I tagli alle organizzazioni che contrastano la violenza di genere (Marie Claire)</a></li>
-                        <li><a href="https://www.ilfattoquotidiano.it/2023/11/24/perche-il-25-novembre-e-la-giornata-contro-la-violenza-sulle-donne-la-storia-delle-sorelle-mirabal/7364136/" target="_blank">La storia delle sorelle Mirabal (Il Fatto Quotidiano)</a></li>
-                        <li><a href="https://www.ilpost.it/2023/11/25/mirabal-repubblica-dominicana-25-novembre-donne/" target="_blank">Perché la giornata internazionale contro la violenza sulle donne si tiene il 25 novembre (Il Post)</a></li>
-                        <li><a href="https://www.ondarossa.info/newsredazione/2025/11/nudm-22-novembre-piazza-contro-violenza" target="_blank">NUDM: il 22 novembre in piazza contro la violenza patriarcale (Radio Onda Rossa)</a></li>
-                        <li><a href="https://www.ilfattoquotidiano.it/2022/11/25/25-novembre-educare-al-consenso-raccontare-le-storie-giuste-cinque-consigli-per-prevenire-la-violenza-sulle-donne-partendo-dai-bambini/6883566/" target="_blank">Educare al consenso, raccontare le storie giuste (Il Fatto Quotidiano)</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="aiuto" class="help-section-bg">
-        <div class="container-fluid">
-            <h2>NON SEI SOLA: CHIEDI AIUTO</h2>
-            <p class="lead-text" style="color: #D90429; font-weight: 700;">Il primo passo per uscire dalla spirale della violenza è rompere il silenzio. Esistono reti di supporto pronte ad ascoltarti.</p>
-
-            <div class="help-container">
-                <div class="help-box-main">
-                    <span style="font-size: 5rem;">📞</span>
-                    <h3 style="justify-content: center; font-size: 3.5rem; margin: 10px 0;">1522</h3>
-                    <p style="font-size: 1.5rem; font-weight: 800; color: #1a1a1a;">Numero Nazionale Anti Violenza e Stalking</p>
-                    <p style="font-size: 1.2rem; margin: 20px 0;">Attivo <strong>H24</strong>. Gratuito. <strong>Anonimo</strong>. Multilingue.</p>
+                    <div class="hero-cta-row" aria-label="Collegamenti rapidi alle sezioni principali">
+                        <a href="#home" class="hero-cta-btn">Riconoscere i segnali</a>
+                        <a href="#dati" class="hero-cta-btn secondary">Leggere i dati</a>
+                        <a href="#aiuto" class="hero-cta-btn accent">Chiedere aiuto</a>
+                    </div>
                     
-                    <div style="margin-top: 30px;">
-                        <a href="tel:1522" class="big-help-btn">CHIAMA ORA IL 1522</a>
-                        <a href="https://www.1522.eu/" target="_blank" class="big-help-btn secondary">CHATTA SUL SITO UFFICIALE</a>
+                    <div class="hero-video-container" aria-label="Video sui segnali della violenza di genere">
+                        <iframe src="https://www.youtube-nocookie.com/embed/LiPqwJ88MbQ?rel=0"
+                                title="Video Segnali di Violenza"
+                                frameborder="0"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid" style="margin-top: 80px;">
+                <div class="quote-box">
+                    "Il rosso oggi non è amore, è un allarme. Riconoscere i segnali è il primo passo per fermare la violenza. 
+                    Noi all'IIS Mendel scegliamo di non voltare la testa."
+                </div>
+                <p class="lead-text">
+                    Questa pagina è uno strumento di consapevolezza. Guarda il video qui sopra per riconoscere i campanelli d'allarme, 
+                    informati sui dati reali qui sotto e scopri gli strumenti concreti per chiedere aiuto.
+                </p>
+            </div>
+        </section>
+        <section id="dati" class="bg-grey">
+            <div class="container-fluid">
+                <h2>Oltre i numeri: la realtà</h2>
+                <p class="lead-text">
+                    I dati ufficiali (Ministero dell'Interno e ISTAT) non sono solo statistiche: raccontano storie di vite interrotte 
+                    e confermano che la violenza contro le donne è un fenomeno strutturale, non un'emergenza episodica.
+                </p>
+                
+                <h3>📊 Lo scenario recente (dati 2023/2024)</h3>
+                <div class="data-grid">
+                    <div class="data-box">
+                        <h4>Le vittime</h4>
+                        <span class="data-big-number">31,5%</span>
+                        <p>
+                            Le donne in Italia tra i 16 e i 70 anni che hanno subito, nel corso della propria vita, 
+                            una qualche forma di violenza fisica o sessuale (indagini ISTAT).
+                        </p>
+                    </div>
+                    <div class="data-box">
+                        <h4>I femminicidi (report 2023)</h4>
+                        <ul class="data-stat-list">
+                            <li><strong>120 donne uccise</strong> nel 2023 in Italia.</li>
+                            <li>Almeno <strong>64</strong> uccise da partner o ex partner.</li>
+                            <li>La maggior parte dei casi avviene in contesti familiari e affettivi.</li>
+                        </ul>
+                    </div>
+                    <div class="data-box">
+                        <h4>Violenza sessuale</h4>
+                        <span class="data-big-number">91%</span>
+                        <p>
+                            Delle vittime di violenza sessuale denunciate sono donne. La violenza sessuale è considerata 
+                            uno dei principali "reati spia" della violenza di genere.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mini-grafico a barre con dati ISTAT -->
+                <div class="data-chart" aria-label="Grafico sulla diffusione della violenza contro le donne in Italia">
+                    <div class="data-chart-title">
+                        La violenza nella vita delle donne (ISTAT, popolazione 16–70 anni)
+                    </div>
+                    <div class="data-chart-row">
+                        <div class="data-chart-label">Qualsiasi violenza fisica o sessuale</div>
+                        <div class="data-chart-bar-wrapper">
+                            <div class="data-chart-bar-fill" style="width:31.5%;"></div>
+                        </div>
+                        <span style="min-width:70px; text-align:right;">31,5%</span>
+                    </div>
+                    <div class="data-chart-row">
+                        <div class="data-chart-label">Violenza fisica</div>
+                        <div class="data-chart-bar-wrapper">
+                            <div class="data-chart-bar-fill" style="width:20.2%;"></div>
+                        </div>
+                        <span style="min-width:70px; text-align:right;">20,2%</span>
+                    </div>
+                    <div class="data-chart-row">
+                        <div class="data-chart-label">Violenza sessuale</div>
+                        <div class="data-chart-bar-wrapper">
+                            <div class="data-chart-bar-fill" style="width:21%;"></div>
+                        </div>
+                        <span style="min-width:70px; text-align:right;">21%</span>
+                    </div>
+                    <div class="data-chart-row">
+                        <div class="data-chart-label">Forme più gravi (stupro/tentato)</div>
+                        <div class="data-chart-bar-wrapper">
+                            <div class="data-chart-bar-fill" style="width:5.4%;"></div>
+                        </div>
+                        <span style="min-width:70px; text-align:right;">5,4%</span>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--mendel-muted);">
+                        Valori tratti dalle indagini ISTAT sulla violenza dentro e fuori la famiglia.
+                    </p>
+                </div>
+
+                <h3 style="margin-top: 60px;">🔍 Riconoscere le forme della violenza</h3>
+                <p>
+                    La violenza non è solo quella che lascia lividi visibili. Spesso inizia in modo sottile,
+                    con forme psicologiche e di controllo che possono evolvere in violenza fisica o sessuale.
+                </p>
+                
+                <div class="definitions-block">
+                    <div class="definition-item">
+                        <div class="definition-title">
+                            <span class="definition-icon">🗣️</span> Violenza psicologica
+                        </div>
+                        <p>
+                            Svalutazione continua, umiliazioni, controllo delle frequentazioni, isolamento da famiglia e amici, 
+                            minacce, gelosia ossessiva scambiata per amore. È spesso l'anticamera della violenza fisica.
+                        </p>
+                    </div>
+                    <div class="definition-item">
+                        <div class="definition-title">
+                            <span class="definition-icon">💸</span> Violenza economica
+                        </div>
+                        <p>
+                            Impedire alla partner di lavorare, controllarle ogni spesa, sottrarle lo stipendio, intestarle debiti, 
+                            costringerla a firmare documenti contro la sua volontà. Serve a creare dipendenza e impedire la fuga.
+                        </p>
+                    </div>
+                    <div class="definition-item">
+                        <div class="definition-title">
+                            <span class="definition-icon">👊</span> Violenza fisica e sessuale
+                        </div>
+                        <p>
+                            Ogni forma di aggressione sul corpo. La violenza sessuale include qualsiasi atto imposto senza consenso, 
+                            anche all'interno di una relazione di coppia o di un matrimonio.
+                        </p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 60px;">⚖️ Lo strumento legale: il "Codice Rosso"</h3>
+                <div style="background: #fff; padding: 30px; border-left: 5px solid var(--mendel-red); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <p style="font-size: 1.1rem;">
+                        La Legge n. 69/2019 (nota come "Codice Rosso") ha introdotto una <strong>corsia preferenziale</strong> 
+                        per le denunce di violenza domestica e di genere. Le forze dell'ordine devono comunicare immediatamente 
+                        la notizia di reato al PM, che deve ascoltare la vittima <strong>entro 3 giorni</strong>. 
+                        L'obiettivo è intervenire prima che la situazione degeneri irreparabilmente.
+                    </p>
+                </div>
+
+                <div style="margin-top: 40px; font-size: 0.95rem; color: var(--mendel-muted);">
+                    <p style="margin-bottom: 8px;"><strong>Per approfondire i numeri:</strong></p>
+                    <ul style="margin-left: 20px; list-style: disc;">
+                        <li>
+                            <a href="https://www.istat.it/it/violenza-sulle-donne/il-fenomeno" target="_blank">
+                                ISTAT – Violenza contro le donne: il numero delle vittime e le forme di violenza
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.istat.it/wp-content/uploads/2024/11/Report_Vittime-di-omicidio_Anno-2023.pdf" target="_blank">
+                                ISTAT – Vittime di omicidio, anno 2023 (report completo)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.ansa.it/sito/notizie/cronaca/2024/03/07/120-donne-uccise-nel-2023-la-meta-dal-compagno-o-da-ex_89208ed0-158c-4ce0-8e95-24607ee09ec1.html" target="_blank">
+                                ANSA – 120 donne uccise nel 2023, la metà dal compagno o dall'ex
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="risorse">
+            <div class="container-fluid">
+                <h2>Documenti, fonti e guide pratiche</h2>
+                <p class="lead-text">
+                    Una selezione curata di report istituzionali, vademecum operativi e risorse educative per comprendere 
+                    e contrastare il fenomeno.
+                </p>
+
+                <div class="resources-grid">
+                    <div class="resource-column">
+                        <h3>🏛️ Report istituzionali & dati</h3>
+                        <ul class="link-list">
+                            <li>
+                                <a href="https://www.interno.gov.it/it/stampa-e-comunicazione/dati-e-statistiche/violenza-genere" target="_blank">
+                                    Viminale: dati sulla violenza di genere
+                                </a>
+                                <span class="link-desc">
+                                    I report settimanali e annuali ufficiali del Dipartimento della Pubblica Sicurezza.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.istat.it/it/violenza-sulle-donne/il-fenomeno" target="_blank">
+                                    ISTAT: sistema informativo integrato
+                                </a>
+                                <span class="link-desc">
+                                    Il quadro completo delle indagini statistiche, incluse le molestie e lo stalking.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.giustizia.it/giustizia/it/mg_2_15.wp" target="_blank">
+                                    Ministero della Giustizia: monitoraggio leggi
+                                </a>
+                                <span class="link-desc">
+                                    Dati sull'applicazione del "Codice Rosso" e sui procedimenti giudiziari.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.pariopportunita.gov.it/it/le-priorita/contrasto-alla-violenza-di-genere/piano-strategico-nazionale-sulla-violenza-maschile-contro-le-donne-2021-2023/" target="_blank">
+                                    Piano Strategico Nazionale 2021-2023
+                                </a>
+                                <span class="link-desc">
+                                    Il documento programmatico del Dipartimento per le Pari Opportunità.
+                                </span>
+                            </li>
+                        </ul>
                     </div>
 
-                     <div style="margin-top: 40px; text-align: left; border-top: 2px solid rgba(217, 4, 41, 0.1); padding-top: 30px;">
-                        <h4 style="text-align: center;">Altri Strumenti Fondamentali:</h4>
-                        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-                            <a href="https://www.direcontrolaviolenza.it/i-centri-antiviolenza/mappa-dei-centri/" target="_blank" class="big-help-btn secondary" style="font-size: 1rem; padding: 15px 25px;">🗺️ Mappa Centri Antiviolenza (D.i.Re)</a>
-                            <a href="https://www.poliziadistato.it/articolo/lapp-youpol" target="_blank" class="big-help-btn secondary" style="font-size: 1rem; padding: 15px 25px;">📱 App YouPol (Polizia di Stato)</a>
+                    <div class="resource-column">
+                        <h3>📘 Guide pratiche e vademecum</h3>
+                        <ul class="link-list">
+                            <li>
+                                <a href="https://www.poliziadistato.it/archivio/category/1224" target="_blank">
+                                    Polizia di Stato: "Questo non è amore"
+                                </a>
+                                <span class="link-desc">
+                                    Materiale informativo della campagna permanente della Polizia.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.salute.gov.it/imgs/C_17_pubblicazioni_2666_allegato.pdf" target="_blank">
+                                    Linee guida nazionali soccorso (PDF)
+                                </a>
+                                <span class="link-desc">
+                                    Il percorso di accoglienza "Rosa" al Pronto Soccorso per le vittime.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.azione.it/wp-content/uploads/2021/11/Vademecum-Violenza-di-Genere.pdf" target="_blank">
+                                    Vademecum legale (esempio)
+                                </a>
+                                <span class="link-desc">
+                                    Guida sintetica sugli strumenti di tutela legale (ordini di protezione, ecc.).
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.actionaid.it/blog/campagne/violenza-sulle-donne-riconoscere-segnali" target="_blank">
+                                    ActionAid: riconoscere i segnali
+                                </a>
+                                <span class="link-desc">
+                                    Una guida semplice per identificare i comportamenti spia della violenza psicologica.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-column">
+                        <h3>🎓 Risorse educative (scuole)</h3>
+                        <ul class="link-list">
+                            <li>
+                                <a href="https://www.savethechildren.it/cosa-facciamo/campagne/la-violenza-sulle-donne-ci-riguarda" target="_blank">
+                                    Save the Children: kit didattici
+                                </a>
+                                <span class="link-desc">
+                                    Strumenti per affrontare il tema in classe con diverse fasce d'età.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.amnesty.it/campagne/io-lo-chiedo/" target="_blank">
+                                    Amnesty International: "Io lo chiedo"
+                                </a>
+                                <span class="link-desc">
+                                    Campagna e materiali educativi sul tema del consenso.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.unicef.it/media/parita-di-genere-a-scuola/" target="_blank">
+                                    UNICEF Italia: parità a scuola
+                                </a>
+                                <span class="link-desc">
+                                    Risorse per promuovere l'uguaglianza di genere nell'educazione.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Colonna multilingue / internazionale -->
+                    <div class="resource-column">
+                        <h3>🌍 Risorse in altre lingue</h3>
+                        <ul class="link-list">
+                            <li>
+                                <a href="https://www.1522.eu/" target="_blank">
+                                    Italy – 1522 helpline (IT/EN e altre lingue)
+                                </a>
+                                <span class="link-desc">
+                                    Sito ufficiale del 1522, con chat online e materiali. Il servizio è gratuito, anonimo e attivo 24/7.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.pariopportunita.gov.it/it/news-e-media/news/archivio/pubblicazione-dei-modelli-del-cartello-recante-il-numero-verde-di-pubblica-utilita-per-il-sostegno-alle-vittime-di-violenza-e-di-stalking-1522/" target="_blank">
+                                    Poster 1522 in più lingue
+                                </a>
+                                <span class="link-desc">
+                                    Cartelli informativi del 1522 disponibili in italiano, inglese, spagnolo, francese, tedesco, arabo, cinese, russo, portoghese, romeno, bengali, sloveno.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.unwomen.org/en/what-we-do/ending-violence-against-women" target="_blank">
+                                    UN Women – Ending violence against women (EN)
+                                </a>
+                                <span class="link-desc">
+                                    Panoramica globale su dati, politiche e programmi per prevenire e contrastare la violenza contro le donne.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.unwomen.org/es/what-we-do/ending-violence-against-women" target="_blank">
+                                    ONU Mujeres – Poner fin a la violencia contra las mujeres (ES)
+                                </a>
+                                <span class="link-desc">
+                                    Informazioni e materiali in spagnolo sul contrasto alla violenza contro donne e ragazze.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://www.unwomen.org/fr/what-we-do/ending-violence-against-women" target="_blank">
+                                    ONU Femmes – Mettre fin à la violence à l’égard des femmes (FR)
+                                </a>
+                                <span class="link-desc">
+                                    Pagina in francese con definizioni, dati chiave e strategie di prevenzione.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="https://arabstates.unwomen.org/ar/what-we-do/ending-violence-against-women" target="_blank">
+                                    هيئة الأمم المتحدة للمرأة – إنهاء العنف ضد النساء والفتيات (AR)
+                                </a>
+                                <span class="link-desc">
+                                    Risorse in arabo dell’ufficio regionale UN Women per gli Stati arabi.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="aiuto" class="help-section-bg">
+            <div class="container-fluid">
+                <h2>Non sei sola: chiedi aiuto</h2>
+                <p class="lead-text" style="color: var(--mendel-red); font-weight: 700;">
+                    Se stai vivendo una situazione di violenza o ti senti in pericolo, parlare con qualcuno è il primo passo.
+                    Esistono servizi gratuiti, anonimi e multilingue pronti ad ascoltarti.
+                </p>
+
+                <div class="help-container">
+                    <div class="help-box-main">
+                        <h3 style="justify-content: center; font-size: 1.6rem; margin-top: 0;">
+                            Numeri da ricordare
+                        </h3>
+
+                        <div class="emergency-grid">
+                            <!-- Carta 1522 -->
+                            <div class="emergency-card">
+                                <div class="emergency-icon">📞</div>
+                                <div class="emergency-number">1522</div>
+                                <div class="emergency-title">
+                                    Numero nazionale antiviolenza e stalking
+                                </div>
+                                <div class="emergency-multilang">
+                                    <p><strong>IT</strong> – Numero nazionale italiano per le vittime di violenza e stalking. Gratuito, attivo 24/7, anonimo.</p>
+                                    <p><strong>EN</strong> – Italian national helpline for victims of violence and stalking. Free, 24/7, anonymous.</p>
+                                    <p><strong>ES</strong> – Número nacional italiano contra la violencia y el acoso. Gratuito, disponible 24/7, anónimo.</p>
+                                    <p><strong>FR</strong> – Numéro national italien contre la violence et le harcèlement. Gratuit, 24h/24, anonyme.</p>
+                                    <p lang="ar"><strong>AR</strong> – الخط الوطني الإيطالي لمساندة ضحايا العنف والمطاردة. خدمة مجانية وسرّية على مدار الساعة.</p>
+                                </div>
+                            </div>
+
+                            <!-- Carta 112 -->
+                            <div class="emergency-card">
+                                <div class="emergency-icon">🚨</div>
+                                <div class="emergency-number">112</div>
+                                <div class="emergency-title">
+                                    Numero unico europeo per le emergenze
+                                </div>
+                                <div class="emergency-multilang">
+                                    <p><strong>IT</strong> – Chiama il 112 se sei in <strong>pericolo immediato</strong> o se qualcuno è in pericolo: intervengono forze di polizia, vigili del fuoco o soccorso sanitario.</p>
+                                    <p><strong>EN</strong> – Call 112 if you or someone else is in <strong>immediate danger</strong>. It connects you to police, fire brigade or medical emergency services.</p>
+                                    <p><strong>ES</strong> – Llama al 112 si tú u otra persona está en <strong>peligro inmediato</strong>. Conecta con policía, bomberos o servicios médicos de urgencia.</p>
+                                    <p><strong>FR</strong> – Appelle le 112 si toi ou quelqu’un d’autre êtes en <strong>danger immédiat</strong>. Tu seras relié·e à la police, aux pompiers ou aux urgences médicales.</p>
+                                    <p lang="ar"><strong>AR</strong> – اتصل بالرقم 112 إذا كنتَ أنتَ أو أيّ شخص آخر في <strong>خطر مباشر</strong>. سيصلك بخدمات الشرطة أو الإطفاء أو الإسعاف.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BLOCCO EVIDENTE: Se sei in pericolo immediato, chiama il 112 -->
+                        <div class="immediate-danger-block">
+                            <p class="immediate-danger-sentence">
+                                Se sei in pericolo immediato, chiama il <span>112</span>.
+                            </p>
+                            <div class="immediate-danger-multilang">
+                                <p><strong>EN</strong> – If you are in immediate danger, call 112.</p>
+                                <p><strong>ES</strong> – Si estás en peligro inmediato, llama al 112.</p>
+                                <p><strong>FR</strong> – Si tu es en danger immédiat, appelle le 112.</p>
+                                <p><strong>DE</strong> – Wenn du in unmittelbarer Gefahr bist, ruf die 112 an.</p>
+                                <p><strong>PT</strong> – Se estiver em perigo imediato, ligue 112.</p>
+                                <p><strong>RO</strong> – Dacă ești în pericol iminent, sună la 112.</p>
+                                <p><strong>RU</strong> – Если вы находитесь в непосредственной опасности, позвоните 112.</p>
+                                <p><strong>UK</strong> – Якщо ви в безпосередній небезпеці, зателефонуйте 112.</p>
+                                <p><strong>ZH</strong> – 如果你处于紧急危险中，请拨打 112。</p>
+                                <p><strong>KO</strong> – 즉각적인 위협을 느낀다면 112로 전화하세요.</p>
+                                <p><strong>JA</strong> – 差し迫った危険があるときは、112に電話してください。</p>
+                                <p lang="he"><strong>HE</strong> – אם את או אתה נמצאים בסכנה מיידית, התקשר/י ל-112.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bottoni collegati al 1522 e alle mappe dei centri -->
+                        <div style="margin-top: 26px; text-align: center;">
+                            <a href="tel:1522" class="big-help-btn">Chiama ora il 1522</a>
+                            <a href="https://www.1522.eu/" target="_blank" class="big-help-btn secondary">
+                                Chatta sul sito ufficiale 1522
+                            </a>
+                            <a href="https://www.1522.eu/mappatura-1522/" target="_blank" class="big-help-btn secondary"
+                               style="display:block; margin:18px auto 0 auto; max-width: 460px;">
+                                🗺️ Trova un centro antiviolenza vicino a te (mappa 1522)
+                            </a>
+                        </div>
+
+                        <div style="margin-top: 34px; border-top: 2px solid rgba(217,4,41,0.12); padding-top: 24px;">
+                            <h4 style="text-align: center; margin-bottom: 12px;">Rete dei centri antiviolenza</h4>
+                            <div class="help-extra-grid">
+                                <a href="https://comecitrovi.casadonne.it/" target="_blank"
+                                   class="big-help-btn secondary"
+                                   style="font-size: 0.98rem; padding: 12px 22px;">
+                                    Mappa Comecitrovi – centri antiviolenza in Italia
+                                </a>
+                                <a href="https://www.direcontrolaviolenza.it/i-centri-antiviolenza/" target="_blank"
+                                   class="big-help-btn secondary"
+                                   style="font-size: 0.98rem; padding: 12px 22px;">
+                                    Centri della rete D.i.Re
+                                </a>
+                            </div>
+                            <p style="font-size: 0.95rem; color: var(--mendel-muted); margin-top: 16px; text-align:center;">
+                                Se sei in pericolo immediato, chiama il <strong>112</strong>.
+                            </p>
                         </div>
                     </div>
-                </div>
 
-                <div class="video-box-side">
-                    <h3 style="justify-content: center; font-size: 1.5rem; margin-top: 0;">Il Messaggio della Scuola</h3>
-                    <div class="video-container-side">
-                        <iframe src="https://www.youtube-nocookie.com/embed/vbM1e3qHLyQ?rel=0&modestbranding=1&showinfo=0" title="Video IIS Mendel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-box-side">
+                        <h3 style="justify-content: center; font-size: 1.5rem; margin-top: 0;">
+                            Il messaggio della scuola
+                        </h3>
+                        <div class="video-container-side" aria-label="Video IIS Mendel contro la violenza di genere">
+                            <iframe src="https://www.youtube-nocookie.com/embed/vbM1e3qHLyQ?rel=0&modestbranding=1&showinfo=0"
+                                    title="Video IIS Mendel"
+                                    frameborder="0"
+                                    loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                        </div>
+                        <p style="text-align: center; margin-top: 18px; font-weight: 700; font-size: 1.05rem; color: var(--mendel-red);">
+                            «Se io non voglio, tu non puoi.»<br>
+                            Video realizzato dalle studentesse e dagli studenti dell'IIS Mendel.
+                        </p>
                     </div>
-                    <p style="text-align: center; margin-top: 20px; font-weight: 700; font-size: 1.1rem; color: #D90429;">"Se io non voglio, tu non puoi."<br>Video realizzato dagli studenti dell'IIS Mendel.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <section id="bibliografia" class="bg-grey bibliography-section">
+            <div class="container-fluid">
+                <h2>Bibliografia completa e riferimenti</h2>
+                <p class="lead-text" style="font-size: 1.1rem;">
+                    Elenco delle fonti, degli articoli e dei documenti consultati per la realizzazione di questo progetto.
+                </p>
+
+                <div class="resources-grid" style="grid-template-columns: 1fr;">
+                    <div class="resource-column" style="border-top-color: #555;">
+                        <h3>Elenco riferimenti</h3>
+                        <ul class="link-list">
+                            <li><a href="https://www.ilfattoquotidiano.it/2024/11/17/violenza-donne-governo-meloni-tutto-tace/7767738/" target="_blank">Contrastare la violenza sulle donne significa agire su più livelli. Ma dal governo tutto tace (Il Fatto Quotidiano)</a></li>
+                            <li><a href="https://finanza.repubblica.it/News/2025/11/20/_insieme_per_le_donne_bper_rinnova_il_proprio_impegno_per_contrastare_la_violenza_economica_e_sostenere_lautonomia_femminile-189/" target="_blank">"Insieme per le Donne": BPER rinnova il proprio impegno (Repubblica Finanza)</a></li>
+                            <li><a href="https://www.avvenire.it/attualita/dal-cyberstalking-al-doxxing-la-violenza-di-genere-e-sempre-piu-digitale_100836" target="_blank">Dal cyberstalking al doxxing, la violenza di genere è sempre più digitale (Avvenire)</a></li>
+                            <li><a href="https://www.dinamopress.it/news/il-22-novembre-non-una-di-meno-scende-di-nuovo-in-piazza-contro-guerre-e-patriarcato/" target="_blank">Il 22 novembre Non Una di Meno scende di nuovo in piazza (Dinamo Press)</a></li>
+                            <li><a href="https://www.lunaria.org/lunaria-con-non-una-di-meno-contro-la-violenza-di-genere/" target="_blank">Lunaria con Non Una di Meno contro la violenza di genere</a></li>
+                            <li><a href="https://www.cgil.it/campagne-e-iniziative/giornata-internazionale-per-leliminazione-della-violenza-contro-le-donne-e-di-genere-riskyv02" target="_blank">CGIL: giornata internazionale per l’eliminazione della violenza</a></li>
+                            <li><a href="https://ntplusdiritto.ilsole24ore.com/art/violenza-sessuale-quando-manca-consenso-libero-e-attuale-ok-camera-pdl-AHj9vypD" target="_blank">Violenza sessuale quando manca il “consenso libero e attuale” (Il Sole 24 Ore)</a></li>
+                            <li><a href="https://www.mim.gov.it/-/25-novembre-il-videomessaggio-del-ministro-valditara-dobbiamo-educare-i-ragazzi-alla-cultura-del-rispetto-a-partire-dalla-scuola-ogni-atto-che-discrim" target="_blank">25 novembre, il videomessaggio del Ministro Valditara (MIM)</a></li>
+                            <li><a href="https://nonunadimeno.wordpress.com/2025/11/" target="_blank">Non Una Di Meno - novembre 2025</a></li>
+                            <li><a href="https://www.ilpost.it/2025/04/03/problema-dati-femminicidi/" target="_blank">In Italia abbiamo un problema con i dati sui femminicidi (Il Post)</a></li>
+                            <li><a href="https://tg24.sky.it/politica/2024/11/25/mattarella-giornata-violenza-donne" target="_blank">Giornata contro la violenza sulle donne, Mattarella: "Non è stato fatto abbastanza" (Sky TG24)</a></li>
+                            <li><a href="https://www.foe.it/news/mim-ministero-dellistruzione-e-del-merito-25-novembre-giornata-internazionale-per-leliminazione-della-violenza-contro-le-donne-e-di-genere-riskyv02" target="_blank">MIM: 25 novembre (CdO Opere Educative)</a></li>
+                            <li><a href="https://www.liceisgv.edu.it/messaggio-del-ministro-dellistruzione-e-del-merito-in-occasione-del-25-novembre-2024/" target="_blank">Messaggio del Ministro dell'Istruzione e del Merito (Licei SGV)</a></li>
+                            <li><a href="https://demografica.adnkronos.com/popolazione/ddl-femminicidio-voto-senato-ergastolo-e-aggravanti/" target="_blank">DDL femminicidio: cosa prevede la nuova legge (Adnkronos)</a></li>
+                            <li><a href="https://www.noidonne.org/articoli/non-una-di-meno-22-novembre-corteo-nazionale-a-roma.php" target="_blank">NON UNA DI MENO: corteo nazionale a Roma (Noi Donne)</a></li>
+                            <li><a href="https://finanza.lastampa.it/News/2023/11/24/adr-contro-la-violenza-sulle-donne-liniziativa-redsuitcase-e-il-progetto-punti-viola-in-aeroporto/MTkzXzIwMjMtMTEtMjRfVExC" target="_blank">ADR contro la violenza sulle donne. L'iniziativa "RedSuitCase" (La Stampa)</a></li>
+                            <li><a href="https://www.grazia.it/moda/news-moda/iniziative-moda-25-novembre-violenza-donne" target="_blank">Iniziative moda 25 novembre: contro la violenza sulle donne (Grazia)</a></li>
+                            <li><a href="https://tg24.sky.it/cronaca/video/2025/11/18/timeline-ogni-72-ore-il-caso-matteuzzi-in-onda-su-sky-crime-il-25-novembre-1052800" target="_blank">Timeline, "Ogni 72 ore. Il caso Matteuzzi" in onda su Sky Crime</a></li>
+                            <li><a href="https://www.marieclaire.it/attualita/news-appuntamenti/a69018549/risparmio-soldi-economia-familiare-donne/" target="_blank">I soldi delle donne: guadagno, spese e risparmio (Marie Claire)</a></li>
+                            <li><a href="https://www.marieclaire.it/attualita/news-appuntamenti/a69302613/organizzazioni-violenza-genere-donne/" target="_blank">I tagli alle organizzazioni che contrastano la violenza di genere (Marie Claire)</a></li>
+                            <li><a href="https://www.ilfattoquotidiano.it/2023/11/24/perche-il-25-novembre-e-la-giornata-contro-la-violenza-sulle-donne-la-storia-delle-sorelle-mirabal/7364136/" target="_blank">La storia delle sorelle Mirabal (Il Fatto Quotidiano)</a></li>
+                            <li><a href="https://www.ilpost.it/2023/11/25/mirabal-repubblica-dominicana-25-novembre-donne/" target="_blank">Perché la giornata internazionale contro la violenza sulle donne si tiene il 25 novembre (Il Post)</a></li>
+                            <li><a href="https://www.ondarossa.info/newsredazione/2025/11/nudm-22-novembre-piazza-contro-violenza" target="_blank">NUDM: il 22 novembre in piazza contro la violenza patriarcale (Radio Onda Rossa)</a></li>
+                            <li><a href="https://www.ilfattoquotidiano.it/2022/11/25/25-novembre-educare-al-consenso-raccontare-le-storie-giuste-cinque-consigli-per-prevenire-la-violenza-sulle-donne-partendo-dai-bambini/6883566/" target="_blank">Educare al consenso, raccontare le storie giuste (Il Fatto Quotidiano)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container-fluid">
-            <p style="font-weight: 600; color: #eee;">IIS MENDEL - Villa Cortese (MI) | 25 Novembre</p>
+            <p style="font-weight: 600; color: #eee;">IIS MENDEL - Villa Cortese (MI) | 25 novembre</p>
             <p style="font-size: 0.9rem; margin-top: 10px;">Progetto educativo contro la violenza di genere.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('main section');
             const navLinks = document.querySelectorAll('nav ul li a');
-            window.addEventListener('scroll', () => {
-                let current = '';
+
+            function onScroll() {
+                let current = 'home';
+                const scrollPos = window.scrollY || window.pageYOffset;
+
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    // Aumentato l'offset per compensare l'altezza dell'header fisso
-                    if (pageYOffset >= (sectionTop - 150)) { current = section.getAttribute('id'); }
+                    if (scrollPos >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
                 });
+
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === current) { link.classList.add('active'); }
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
                 });
-            });
+            }
+
+            window.addEventListener('scroll', onScroll);
+            onScroll();
         });
     </script>
 </body>
