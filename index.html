@@ -189,6 +189,13 @@
             background: transparent;
         }
 
+        .hero-help-banner { max-width: 900px; margin: 28px auto 0; background: #fff; border: 3px solid #D90429; border-radius: 14px; padding: 20px 24px; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+        .hero-help-title { font-weight: 800; font-size: 1.25rem; color: #D90429 !important; margin-bottom: 14px; }
+        .hero-help-numbers { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+        .hero-help-num { flex: 1 1 260px; display: flex; flex-direction: column; align-items: center; background: #D90429; color: #fff !important; text-decoration: none; border-radius: 10px; padding: 12px 16px; }
+        .hero-help-num strong { font-size: 2.6rem; line-height: 1.1; font-weight: 900; color: #fff !important; }
+        .hero-help-num span { font-size: 0.95rem; color: #fff !important; }
+        .hero-help-more { display: inline-block; margin-top: 14px; font-weight: 700; color: #D90429 !important; text-decoration: underline; }
         .hero-video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -648,6 +655,15 @@
                                 loading="lazy"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
+                    </div>
+
+                    <div class="hero-help-banner" role="region" aria-label="Numeri di emergenza">
+                        <div class="hero-help-title">Hai bisogno di aiuto? Non sei sola.</div>
+                        <div class="hero-help-numbers">
+                            <a href="tel:1522" class="hero-help-num"><strong>1522</strong><span>antiviolenza e stalking, gratuito, 24 ore su 24</span></a>
+                            <a href="tel:112" class="hero-help-num"><strong>112</strong><span>emergenza: se sei in pericolo immediato</span></a>
+                        </div>
+                        <a href="#aiuto" class="hero-help-more">Tutti i contatti e i centri antiviolenza &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -1291,23 +1307,6 @@
                         </div>
                     </div>
 
-                    <div class="video-box-side">
-                        <h3 style="justify-content: center; font-size: 1.5rem; margin-top: 0;">
-                            Il messaggio della scuola
-                        </h3>
-                        <div class="video-container-side" aria-label="Video IIS Mendel contro la violenza di genere">
-                           <iframe src="https://www.youtube-nocookie.com/embed/WU5IQjiPfqw?rel=0&modestbranding=1&showinfo=0"
-                                   title="Video IIS Mendel"
-                                   frameborder="0"
-                                   loading="lazy"
-                                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                   allowfullscreen></iframe>
-
-                        </div>
-                        <p style="text-align: center; margin-top: 18px; font-weight: 700; font-size: 1.05rem; color: var(--mendel-red);">
-                            «Se io non voglio, tu non puoi.»
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1350,6 +1349,29 @@
                         </ul>
                     </div>
                     <div class="resource-column">
+                        <h3>Documentari e inchieste (RaiPlay)</h3>
+                        <ul class="link-list">
+                            <li>
+                                <a href="https://www.raiplay.it/video/2025/03/Da-Sara-a-Giulia-il-dolore-che-diventa-impegno-contro-la-violenza---PresaDiretta-09032025-95737c34-12b1-47c6-8505-d54de11c8ef8.html" target="_blank" rel="noopener">
+                                    Da Sara a Giulia: il dolore diventa impegno contro la violenza (2025, 7 minuti)
+                                </a>
+                                <span class="link-desc">Le testimonianze dei familiari di Sara Di Pietrantonio e Giulia Cecchettin: rispetto reciproco, educazione sentimentale e prevenzione.</span>
+                            </li>
+                            <li>
+                                <a href="https://www.raiplay.it/video/2025/11/Spotlight---Inascoltate-La-giustizia-difficile-per-le-donne-vittime-di-violenza---24112025-5be75c4c-033e-42b7-9329-3ef02579e7f8.html" target="_blank" rel="noopener">
+                                    Inascoltate: la giustizia difficile per le donne vittime di violenza (2025, 25 minuti)
+                                </a>
+                                <span class="link-desc">Inchiesta su donne che denunciano violenze ma faticano a trovare ascolto e protezione. Adatta soprattutto alle classi quarte e quinte.</span>
+                            </li>
+                            <li>
+                                <a href="https://www.raiplay.it/video/2025/03/La-piaga-dei-femminicidi---PresaDiretta---Puntata-del-09032025-6a4a4d10-00fc-4130-bd12-17d411431ea8.html" target="_blank" rel="noopener">
+                                    La piaga dei femminicidi – PresaDiretta (2025, 54 minuti)
+                                </a>
+                                <span class="link-desc">Approfondimento su relazioni possessive, violenza psicologica ed educazione affettiva, con un intervento dello psicoterapeuta Alberto Pellai.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="resource-column">
                         <h3>I video della scuola</h3>
                         <ul class="link-list">
                             <li>
@@ -1357,12 +1379,6 @@
                                     25 novembre 2026: Giornata internazionale contro la violenza sulle donne (IIS Mendel)
                                 </a>
                                 <span class="link-desc">Il video principale di questo progetto, realizzato dal Team Digitale dell’IIS Mendel.</span>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/watch?v=WU5IQjiPfqw" target="_blank" rel="noopener">
-                                    «Se io non voglio, tu non puoi.» Il messaggio della scuola
-                                </a>
-                                <span class="link-desc">Video dell’IIS Mendel contro la violenza di genere.</span>
                             </li>
                         </ul>
                     </div>
@@ -1380,6 +1396,7 @@
                     <div class="resource-column" style="border-top-color: #555;">
                         <h3>Elenco riferimenti</h3>
                         <ul class="link-list">
+                            <li><a href="https://www.amnesty.it/violenza-di-genere-conoscerla-per-affrontarla/" target="_blank" rel="noopener"><strong>Violenza di genere: conoscerla per affrontarla (Amnesty International Italia)</strong></a></li>
                             <li><a href="https://www.istat.it/comunicato-stampa/violenza-contro-le-donne-dallinfanzia-alleta-adulta-anno-2025/" target="_blank" rel="noopener">ISTAT: Violenza contro le donne dall’infanzia all’età adulta – Anno 2025 (comunicato del 16 settembre 2026)</a></li>
                             <li><a href="https://www.istat.it/tavole-di-dati/il-numero-verde-1522-chi-chiama-perche-e-cosa-racconta-anno-2025/" target="_blank" rel="noopener">ISTAT: Il numero verde 1522: chi chiama, perché e cosa racconta – Anno 2025 (4 settembre 2026)</a></li>
                             <li><a href="https://www.istat.it/statistiche-per-temi/focus/violenza-sulle-donne/il-fenomeno/omicidi-di-donne/" target="_blank" rel="noopener">ISTAT: Violenza sulle donne – Omicidi di donne (Le vittime di omicidio, anno 2024)</a></li>
@@ -1463,4 +1480,3 @@
     </script>
 </body>
 </html>
-
