@@ -310,6 +310,20 @@
             border-radius: 999px;
         }
 
+
+        .data-chart-row { cursor: pointer; padding: 6px 8px; border-radius: 10px; transition: background .2s, transform .2s; outline: none; }
+        .data-chart-row:hover, .data-chart-row:focus, .data-chart-row.active { background: #fff0f2; transform: translateX(3px); }
+        .data-chart-row:focus-visible { box-shadow: 0 0 0 3px rgba(217,4,41,.4); }
+        .data-chart-bar-fill { width: 0; transition: width 1.1s cubic-bezier(.22,.8,.3,1), filter .2s; }
+        .data-chart-row:hover .data-chart-bar-fill, .data-chart-row.active .data-chart-bar-fill { filter: brightness(1.15); }
+        .data-chart-detail { margin-top: 14px; border-left: 5px solid var(--mendel-red); background: #fafafa; border-radius: 10px; padding: 14px 18px; min-height: 92px; }
+        .data-chart-detail .dc-big { font-size: 1.5rem; font-weight: 900; color: var(--mendel-red); }
+        .data-chart-detail .dc-txt { font-size: 0.98rem; margin-top: 2px; }
+        .dc-dots { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+        .dc-dot { width: 22px; height: 22px; border-radius: 50%; background: #ddd; transition: background .3s; }
+        .dc-dot.on { background: var(--mendel-red); }
+        .dc-hint { font-size: 0.85rem; color: var(--mendel-muted); margin-top: 10px; }
+
         /* --- DEFINIZIONI --- */
         .definitions-block { 
             background: #fff; 
@@ -768,45 +782,52 @@
                 <div class="data-chart" aria-label="Confronto sintetico di alcuni indicatori chiave sulla violenza contro le donne">
                     <div class="data-chart-title">Alcuni numeri chiave a colpo d’occhio</div>
 
-                    <div class="data-chart-row">
+                    <div class="data-chart-row" tabindex="0" data-big="1 donna su 3" data-txt="Circa 1 donna su 3 tra le italiane di 16-75 anni ha subìto violenza fisica o sessuale da adulta." data-dots="3">
                         <div class="data-chart-label">Italiane che hanno subìto violenza fisica o sessuale da adulte</div>
                         <div class="data-chart-bar-wrapper">
                             <div class="data-chart-bar-fill" style="width: 32%;"></div>
                         </div>
-                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px;">31,9%</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px; flex: 0 0 78px; text-align: right;">31,9%</span>
                     </div>
 
-                    <div class="data-chart-row">
+                    <div class="data-chart-row" tabindex="0" data-big="circa 1 su 6" data-txt="Circa 1 donna su 6 ha subìto violenza fisica o sessuale prima dei 16 anni." data-dots="2">
                         <div class="data-chart-label">Italiane che hanno subìto violenza fisica o sessuale prima dei 16 anni</div>
                         <div class="data-chart-bar-wrapper">
                             <div class="data-chart-bar-fill" style="width: 15%;"></div>
                         </div>
-                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px;">15,3%</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px; flex: 0 0 78px; text-align: right;">15,3%</span>
                     </div>
 
-                    <div class="data-chart-row">
+                    <div class="data-chart-row" tabindex="0" data-big="1 vittima su 3" data-txt="Su 286 omicidi nel 2025, 97 vittime sono donne: circa 1 su 3." data-dots="3">
                         <div class="data-chart-label">Donne sul totale delle vittime di omicidio (2025)</div>
                         <div class="data-chart-bar-wrapper">
                             <div class="data-chart-bar-fill" style="width: 34%;"></div>
                         </div>
-                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px;">97 su 286</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px; flex: 0 0 78px; text-align: right;">97 su 286</span>
                     </div>
 
-                    <div class="data-chart-row">
+                    <div class="data-chart-row" tabindex="0" data-big="circa 9 su 10" data-txt="Di 97 donne uccise nel 2025, 85 sono state uccise in ambito familiare o affettivo: circa 9 su 10." data-dots="9">
                         <div class="data-chart-label">Donne uccise in ambito familiare/affettivo (2025)</div>
                         <div class="data-chart-bar-wrapper">
                             <div class="data-chart-bar-fill" style="width: 88%;"></div>
                         </div>
-                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px;">85 su 97</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px; flex: 0 0 78px; text-align: right;">85 su 97</span>
                     </div>
 
-                    <div class="data-chart-row">
+                    <div class="data-chart-row" tabindex="0" data-big="circa 2 su 3" data-txt="Di 97 donne uccise nel 2025, 62 sono state uccise da partner o ex partner: circa 2 su 3." data-dots="6">
                         <div class="data-chart-label">Donne uccise da partner o ex partner (2025)</div>
                         <div class="data-chart-bar-wrapper">
                             <div class="data-chart-bar-fill" style="width: 64%;"></div>
                         </div>
-                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px;">62 su 97</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; margin-left: 6px; flex: 0 0 78px; text-align: right;">62 su 97</span>
                     </div>
+
+                    <div class="data-chart-detail" id="dc-detail" aria-live="polite">
+                        <div class="dc-big" id="dc-big"></div>
+                        <div class="dc-txt" id="dc-txt"></div>
+                        <div class="dc-dots" id="dc-dots" aria-hidden="true"></div>
+                    </div>
+                    <div class="dc-hint">Passa il mouse (o tocca) su una barra per vedere il dato in parole semplici.</div>
                 </div>
 
 
@@ -1502,6 +1523,30 @@
             onScroll();
             toggleTop();
         });
-    </script>
+    
+    (function(){
+        try{
+            var chart=document.querySelector('.data-chart'); if(!chart) return;
+            var rows=chart.querySelectorAll('.data-chart-row'), big=document.getElementById('dc-big'), txt=document.getElementById('dc-txt'), dots=document.getElementById('dc-dots');
+            var targets=[];
+            rows.forEach(function(r){ var f=r.querySelector('.data-chart-bar-fill'); targets.push(f.style.width); });
+            function show(r){
+                rows.forEach(function(x){x.classList.remove('active');}); r.classList.add('active');
+                big.textContent=r.dataset.big; txt.textContent=r.dataset.txt;
+                var n=parseInt(r.dataset.dots,10); dots.innerHTML='';
+                for(var i=0;i<10;i++){ var d=document.createElement('span'); d.className='dc-dot'; dots.appendChild(d); (function(d,i){ setTimeout(function(){ if(i<n) d.classList.add('on'); }, 40*i); })(d,i); }
+            }
+            rows.forEach(function(r){
+                r.addEventListener('mouseenter',function(){show(r);});
+                r.addEventListener('focus',function(){show(r);});
+                r.addEventListener('click',function(){show(r);});
+            });
+            function grow(){ rows.forEach(function(r,i){ r.querySelector('.data-chart-bar-fill').style.width=targets[i]; }); show(rows[0]); }
+            if('IntersectionObserver' in window){
+                var io=new IntersectionObserver(function(en){ if(en[0].isIntersecting){ grow(); io.disconnect(); } },{threshold:0.3}); io.observe(chart);
+            } else grow();
+        }catch(e){ document.querySelectorAll('.data-chart-bar-fill').forEach(function(f){f.style.width='';}); }
+    })();
+</script>
 </body>
 </html>
