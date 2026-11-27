@@ -324,6 +324,23 @@
         .dc-dot.on { background: var(--mendel-red); }
         .dc-hint { font-size: 0.85rem; color: var(--mendel-muted); margin-top: 10px; }
 
+
+        .sfh-box { margin-top: 50px; background: #fff; border: 3px solid var(--mendel-red); border-radius: 18px; padding: 28px 26px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .sfh-box h3 { margin-top: 0; justify-content: center; text-align: center; font-size: 1.6rem; }
+        .sfh-lead { text-align: center; max-width: 780px; margin: 8px auto 22px; font-size: 1.05rem; }
+        .sfh-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+        .sfh-step { text-align: center; background: #fff5f5; border-radius: 14px; padding: 16px 12px; transition: transform .2s, box-shadow .2s; }
+        .sfh-step:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(217,4,41,.18); }
+        .sfh-step svg { width: 120px; height: 140px; display: block; margin: 0 auto; }
+        .sfh-num { display: flex; margin: 0 auto 8px; width: 34px; height: 34px; align-items: center; justify-content: center; border-radius: 50%; background: var(--mendel-red); color: #fff; font-weight: 900; margin-bottom: 8px; }
+        .sfh-step p { margin: 6px 0 0; font-weight: 600; }
+        .sfh-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 22px; }
+        .sfh-card { background: #fafafa; border-left: 5px solid var(--mendel-red); border-radius: 10px; padding: 14px 18px; }
+        .sfh-card h4 { margin: 0 0 8px; font-size: 1.1rem; color: var(--mendel-red); }
+        .sfh-card ul { margin: 0 0 0 18px; padding: 0; list-style: disc; font-size: 0.97rem; }
+        .sfh-card li { margin-bottom: 5px; }
+        .sfh-src { font-size: 0.85rem; color: var(--mendel-muted); margin-top: 16px; text-align: center; }
+
         /* --- DEFINIZIONI --- */
         .definitions-block { 
             background: #fff; 
@@ -662,7 +679,7 @@
                     </div>
 
                     <div class="hero-video-container" aria-label="Video 25 novembre 2026: giornata internazionale contro la violenza sulle donne">
-                        <iframe src="https://www.youtube-nocookie.com/embed/-NHeRGXLL0o?rel=0"
+                        <iframe src="https://www.youtube-nocookie.com/embed/dHvdUIYajlE?rel=0"
                                 title="25 novembre 2026 - Giornata internazionale contro la violenza sulle donne - IIS Mendel"
                                 frameborder="0"
                                 loading="lazy"
@@ -1311,7 +1328,7 @@
                                 <span class="link-desc">Approfondimento su relazioni possessive, violenza psicologica ed educazione affettiva, con un intervento dello psicoterapeuta Alberto Pellai.</span>
                             </li>
                             <li>
-                                <a href="https://youtu.be/-NHeRGXLL0o" target="_blank" rel="noopener">
+                                <a href="https://youtu.be/dHvdUIYajlE" target="_blank" rel="noopener">
                                     25 novembre 2026: Giornata internazionale contro la violenza sulle donne (IIS Mendel)
                                 </a>
                                 <span class="link-desc">Il video principale di questo progetto, realizzato dal Team Digitale dell’IIS Mendel.</span>
@@ -1387,7 +1404,6 @@
                                 <p><strong>ZH</strong> – 如果你处于紧急危险中，请拨打 112。</p>
                                 <p><strong>KO</strong> – 즉각적인 위협을 느낀다면 112로 전화하세요.</p>
                                 <p><strong>JA</strong> – 差し迫った危険があるときは、112に電話してください。</p>
-                                <p lang="ar"><strong>AR</strong> – إذا كنتَ أنتَ أو شخصٌ آخر في خطر مباشر، اتصل بالرقم 112.</p>
                                 <p lang="he"><strong>HE</strong> – אם את או אתה נמצאים בסכנה מיידית, התקשר/י ל-112.</p>
                             </div>
                         </div>
@@ -1430,6 +1446,43 @@
                     </div>
 
                 </div>
+                <div class="sfh-box" id="gesto-aiuto">
+                    <h3>Non puoi parlare? Il gesto per chiedere aiuto in silenzio</h3>
+                    <p class="sfh-lead">
+                        Si chiama <strong>Signal for Help</strong> ed è stato lanciato nell’aprile 2020 dalla Canadian Women’s Foundation.
+                        Si fa con una sola mano, senza parole: in presenza, dalla finestra o durante una videochiamata.
+                    </p>
+                    <div class="sfh-steps">
+                        <div class="sfh-step"><span class="sfh-num">1</span><svg viewBox="0 0 120 140" role="img" aria-label="Mano aperta, palmo verso chi guarda" xmlns="http://www.w3.org/2000/svg"><rect x="31" y="26" width="13" height="52" rx="6.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="46" y="18" width="13" height="60" rx="6.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="61" y="20" width="13" height="58" rx="6.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="76" y="30" width="13" height="48" rx="6.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="30" y="64" width="60" height="58" rx="16" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="14" y="80" width="14" height="42" rx="7" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" transform="rotate(-30 21 101)"/></svg><p>Mostra il palmo della mano a chi ti guarda.</p></div>
+                        <div class="sfh-step"><span class="sfh-num">2</span><svg viewBox="0 0 120 140" role="img" aria-label="Il pollice si piega verso il palmo" xmlns="http://www.w3.org/2000/svg"><rect x="31" y="26" width="13" height="52" rx="6.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="46" y="18" width="13" height="60" rx="6.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="61" y="20" width="13" height="58" rx="6.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="76" y="30" width="13" height="48" rx="6.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="30" y="64" width="60" height="58" rx="16" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><rect x="34" y="88" width="50" height="15" rx="7.5" fill="#f2c6a0" stroke="#b9825a" stroke-width="2" /><path d="M12 96 H30" stroke="#D90429" stroke-width="3" stroke-linecap="round"/><path d="M26 90 L32 96 L26 102" fill="none" stroke="#D90429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Piega il pollice verso il palmo.</p></div>
+                        <div class="sfh-step"><span class="sfh-num">3</span><svg viewBox="0 0 120 140" role="img" aria-label="Le quattro dita si chiudono a pugno sul pollice" xmlns="http://www.w3.org/2000/svg"><path d="M26 74 Q26 56 44 56 H78 Q96 56 96 74 V104 Q96 126 74 126 H48 Q26 126 26 104 Z" fill="#f2c6a0" stroke="#b9825a" stroke-width="2"/><g fill="#f2c6a0" stroke="#b9825a" stroke-width="2"><rect x="28" y="50" width="16" height="46" rx="8"/><rect x="43" y="46" width="16" height="50" rx="8"/><rect x="58" y="46" width="16" height="50" rx="8"/><rect x="73" y="50" width="16" height="46" rx="8"/></g><g stroke="#b9825a" stroke-width="2" stroke-linecap="round" fill="none"><path d="M31 92 Q36 98 41 92"/><path d="M46 92 Q51 98 56 92"/><path d="M61 92 Q66 98 71 92"/><path d="M76 92 Q81 98 86 92"/><path d="M36 108 H86" opacity=".5"/></g><path d="M60 8 V34" stroke="#D90429" stroke-width="3" stroke-linecap="round"/><path d="M52 27 L60 37 L68 27" fill="none" stroke="#D90429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Chiudi le altre quattro dita sul pollice, come a «intrappolarlo».</p></div>
+                    </div>
+                    <div class="sfh-cols">
+                        <div class="sfh-card">
+                            <h4>Se vedi questo gesto</h4>
+                            <ul>
+                                <li>Fai capire con discrezione di aver capito, senza reagire in modo evidente.</li>
+                                <li>Se puoi, fai domande a cui si risponde con sì o no, per non mettere la persona in pericolo.</li>
+                                <li>Chiama il <strong>112</strong> se la persona è in pericolo immediato, oppure il <strong>1522</strong> per essere guidato su cosa fare. Non improvvisare e non affrontare da solo chi la minaccia.</li>
+                            </ul>
+                        </div>
+                        <div class="sfh-card">
+                            <h4>Attenzione: i limiti del gesto</h4>
+                            <ul>
+                                <li>Non è un sistema di allarme: nessuno viene avvisato in automatico. Funziona solo se chi lo vede lo riconosce e sa cosa fare.</li>
+                                <li>Non sostituisce il 1522, il 112 e i centri antiviolenza, che sono il vero aiuto.</li>
+                                <li>Non tutte le persone possono farlo: se puoi, chiama o scrivi in chat al 1522.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="sfh-src">
+                        Per approfondire:
+                        <a href="https://canadianwomen.org/signal-for-help/" target="_blank" rel="noopener">Canadian Women’s Foundation</a> ·
+                        <a href="https://www.ilpost.it/2021/03/17/gesto-violenza-domestica/" target="_blank" rel="noopener">Il Post</a> ·
+                        <a href="https://tg24.sky.it/cronaca/approfondimenti/gesto-antiviolenza-donne" target="_blank" rel="noopener">Sky TG24</a>
+                    </p>
+                </div>
+
             </div>
         </section>
         <section id="bibliografia" class="bg-grey bibliography-section">
@@ -1466,6 +1519,9 @@
                             <li><a href="https://www.mondadorieducation.it/giornata-internazionale-per-leliminazione-della-violenza-contro-le-donne/" target="_blank" rel="noopener">Giornata internazionale per l’eliminazione della violenza contro le donne: materiali didattici (Mondadori Education)</a></li>
                             <li><a href="https://www.tecnicadellascuola.it/dalla-violenza-di-genere-ai-femminicidi-gino-cecchettin-incontra-gli-studenti-diretta-13-febbraio-ore-11-iscrivi-la-tua-classe" target="_blank" rel="noopener">Dalla violenza di genere ai femminicidi: Gino Cecchettin incontra gli studenti (La Tecnica della Scuola, 13 febbraio 2026)</a></li>
                             <li><a href="https://www.agi.it/cronaca/news/2024-11-18/giulia-cecchettin-un-anno-dopo-nasce-fondazione-28790546/" target="_blank" rel="noopener">Giulia Cecchettin, un anno dopo nasce la Fondazione (AGI, 18 novembre 2024)</a></li>
+                            <li><a href="https://canadianwomen.org/signal-for-help/" target="_blank" rel="noopener">Signal for Help (Canadian Women’s Foundation)</a></li>
+                            <li><a href="https://www.ilpost.it/2021/03/17/gesto-violenza-domestica/" target="_blank" rel="noopener">Il gesto per chiedere sostegno quando si subisce violenza (Il Post, 17 marzo 2021)</a></li>
+                            <li><a href="https://tg24.sky.it/cronaca/approfondimenti/gesto-antiviolenza-donne" target="_blank" rel="noopener">Signal for Help, qual è il segnale d’aiuto per le donne in pericolo (Sky TG24)</a></li>
                             <li style="border-bottom: none; padding-bottom: 0; margin-top: 10px;"><strong style="color:#1a1a1a;">Fonti di contesto (anni precedenti)</strong></li>
                             <li><a href="https://www.ilpost.it/2025/04/03/problema-dati-femminicidi/" target="_blank" rel="noopener">In Italia abbiamo un problema con i dati sui femminicidi (Il Post, 2025)</a></li>
                             <li><a href="https://www.avvenire.it/attualita/dal-cyberstalking-al-doxxing-la-violenza-di-genere-e-sempre-piu-digitale_100836" target="_blank" rel="noopener">Dal cyberstalking al doxxing, la violenza di genere è sempre più digitale (Avvenire)</a></li>
@@ -1551,3 +1607,4 @@
 </script>
 </body>
 </html>
+
